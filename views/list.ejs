@@ -1,0 +1,26 @@
+<!--Header Template -->
+<%- include("header") -%>
+<div class="box" id="heading">
+    <!-- <%= %> is the syntax for EJS placeholders %> -->
+    <h1><%= listTitle %></h1> <!-- Placeholder for key-value pair found in app.js -->
+  </div>
+
+  <div class="box">
+    <%# loop %>
+    <% for (var i = 0; i < newListItems.length;  i++ ) { %>
+    <div class="item">
+      <input type="checkbox">
+      <p> <%= newListItems[i] %> </p>
+    </div>
+    <% } %>
+    <!--<% %> is needed on every line of JavaScript code, for it to be rendered within HTML-->
+
+
+  <!-- Form to submit back to the renderer route, to add to list -->
+  <form class="item" name="adder" action="/" method="post">
+    <input type="text" name="newItem"placeholder="New Item"autofocus autocomplete="off">
+    <button class="plus" type="submit" name="list" value=<%= listTitle %>>+</button>
+  </form>
+  </div>
+  <!--Footer Template -->
+  <%- include("footer") -%>
